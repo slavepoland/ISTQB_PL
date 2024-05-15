@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:ISTQB_PL.Services"
+             x:Class="ISTQB_PL.App">
+    <!--
+        Define global resources and styles here, that apply to all pages in your app.
+    -->
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!-- Kolor tła dla trybu jasnego -->
+            <Color x:Key="JasneTlo">#FFFFFF</Color>
+
+            <!-- Kolor tekstu dla trybu jasnego -->
+            <Color x:Key="JasnyTekst">#000000</Color>
+
+            <!-- Kolor tła dla trybu ciemnego -->
+            <Color x:Key="CiemneTlo">#000000</Color>
+
+            <!-- Kolor tekstu dla trybu ciemnego -->
+            <Color x:Key="CiemnyTekst">#FFFFFF</Color>
+
+            <Color x:Key="Primary">#2196F3</Color>
+
+            <local:OptionValueConverter x:Key="OptionValueConverter" />
+            <local:TextConcatenationConverter x:Key="TextConcatenationConverter"/>
+            <local:BackgroundColorConverter x:Key="BackgroundColorConverter" />
+            <!--{DynamicResource JasneTlo}-->
+            <Style TargetType="StackLayout" x:Key="ReklamaLayoutStyle">
+                <Setter Property="BackgroundColor" Value="Transparent" /> 
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="VerticalOptions" Value="EndAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="HeightRequest" Value="60"/>
+            </Style>
+            
+            <Style TargetType="StackLayout" x:Key="StackLayoutStyle">
+                <Setter Property="BackgroundColor" Value="{DynamicResource JasneTlo}" />
+                <Setter Property="Padding" Value="2"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style TargetType="Frame" x:Key="FrameStyle">
+                <Setter Property="BorderColor" Value="{StaticResource Primary}"/>
+                <Setter Property="BackgroundColor" Value="{DynamicResource JasneTlo}"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="Padding" Value="5"/>
+            </Style>
+
+            <Style TargetType="RadioButton" x:Key="RadioStyle">
+                <Setter Property="BackgroundColor" Value="{DynamicResource JasneTlo}"/>
+                <Setter Property="BorderColor" Value="{StaticResource Primary}"/>
+                <Setter Property="BorderWidth" Value="4"/>
+                <Setter Property="TextColor" Value="{DynamicResource JasnyTekst}"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+
+            <Style TargetType="RadioButton" x:Key="DarkRadioStyle">
+                <Setter Property="BackgroundColor" Value="{DynamicResource JasneTlo}"/>
+                <Setter Property="BorderColor" Value="{StaticResource Primary}"/>
+                <Setter Property="BorderWidth" Value="4"/>
+                <Setter Property="TextColor" Value="{DynamicResource JasnyTekst}"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="LabelStyle">
+                <Setter Property="TextColor" Value="{DynamicResource JasnyTekst}"/>
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="VerticalOptions" Value="Start"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="VerticalTextAlignment" Value="Start"/>
+                <Setter Property="TextType" Value="Html"/>
+                <Setter Property="LineBreakMode" Value="WordWrap"/>
+            </Style>
+
+            <Style TargetType="Label" x:Key="DarkLabelStyle">
+                <Setter Property="TextColor" Value="{DynamicResource JasnyTekst}"/>
+                <Setter Property="FontSize" Value="Default"/>
+                <Setter Property="VerticalOptions" Value="FillAndExpand"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="EntryStyle">
+                <Setter Property="TextColor" Value="{DynamicResource JasnyTekst}"/>
+                <Setter Property="PlaceholderColor" Value="Silver"/>
+            </Style>
+
+            <Style TargetType="Entry" x:Key="DarkEntryStyle">
+                <Setter Property="TextColor" Value="{DynamicResource JasnyTekst}"/>
+                <Setter Property="PlaceholderColor" Value="Silver"/>
+            </Style>
+
+            <Style TargetType="Button" x:Key="ButtonStyle">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}"/>
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Disabled">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="#332196F3" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>        
+    </Application.Resources>
+</Application>

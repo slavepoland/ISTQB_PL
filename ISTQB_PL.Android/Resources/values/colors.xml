@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="launcher_background">#FFFFFF</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+	<color name="colorAccentDark">#D81B60</color>
+	<color name="defaultFontColor">#333333</color>
+	<color name="defaultFontColorDarkTheme">#FFFFFF</color>
+	<color name="checked_color">#FFFFFF</color>
+	<!-- Ustaw kolor dla trybu ciemnego, gdy RadioButton jest zaznaczony -->
+	<color name="unchecked_color">#808080</color>
+	<!-- Ustaw kolor dla trybu ciemnego, gdy RadioButton nie jest zaznaczony -->
+	<color name="checked_color_dark_mode">#FFFFFF</color>
+	<!-- Kolor dla trybu ciemnego, gdy RadioButton jest zaznaczony -->
+	<color name="checked_color_light_mode">#000000</color>
+	<!-- Kolor dla trybu jasnego, gdy RadioButton jest zaznaczony -->
+</resources>
+<!--303F9F-->

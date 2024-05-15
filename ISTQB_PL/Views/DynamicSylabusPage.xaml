@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.DynamicSylabusPage"
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False">
+    <!--<ContentPage.Content>
+        <StackLayout x:Name="MainStackLayout">
+
+        </StackLayout>
+    </ContentPage.Content>-->
+</ContentPage>

@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.ItemsPage"
+             xmlns:local="clr-namespace:ISTQB_PL.Services" 
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False"
+             Title="{Binding Title}"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:TextConcatenationConverter x:Key="TextConcatenationConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_action_delete.png"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="ToolbarItem_Clicked"
+                     AutomationProperties.Name="Skasuj wszystkie odpowiedzi"
+                     AutomationProperties.HelpText="Skasuj wszystkie odpowiedzi">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <!-- główny ekran - całość-->
+        <StackLayout Style="{DynamicResource StackLayoutStyle}">
+            <StackLayout.GestureRecognizers>
+                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+            </StackLayout.GestureRecognizers>
+
+            <!--stacklayout collectionview-->
+            <StackLayout >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65"/>
+                    </Grid.RowDefinitions>
+
+                    <CollectionView x:Name="ItemsListView" Grid.Row="0" 
+                                        ItemsSource="{Binding ItemsToViewModel}" 
+                                        SelectionMode="Single"
+                                        SelectionChanged="ItemsListViewChanged" 
+                                        >
+                        <CollectionView.ItemsLayout >
+                            <LinearItemsLayout Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate >
+                            <DataTemplate >
+                                <StackLayout x:Name="StackCollectionView" VerticalOptions="Center" Padding="3">
+                                    <Frame x:Name="FrameCollectionView"  
+                                           BackgroundColor="{Binding Answer_color, Converter={StaticResource BackgroundColorConverter}}"
+                                           >
+                                        <Label x:Name="LabelCollectionView" Text="{Binding Id_Sorted, Converter={StaticResource TextConcatenationConverter}, ConverterParameter='P.'}" 
+                                               HorizontalOptions="Center" VerticalOptions="Center" TextColor="{Binding ItemMainTextColor}">
+                                        </Label>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </StackLayout>
+
+            <!--stacklayout labels and radiobuttons-->
+            <StackLayout Style="{DynamicResource StackLayoutStyle}" >
+                <StackLayout.GestureRecognizers>
+                    <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                    <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                </StackLayout.GestureRecognizers>
+                <ScrollView VerticalScrollBarVisibility="Never">
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                            Padding="1" BackgroundColor="Transparent" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Frame Style="{DynamicResource FrameStyle}" BackgroundColor="{DynamicResource Primary}" CornerRadius="0">
+                            <Frame.GestureRecognizers>
+                                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                            </Frame.GestureRecognizers>
+                        <StackLayout>
+                                <Label x:Name="MyLabel" Grid.Row="0" 
+                                    Style="{DynamicResource LabelStyle}" TextColor="White">
+                                    <!--<Label.GestureRecognizers>
+                                        <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                                        <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                                    </Label.GestureRecognizers>-->
+                                </Label>
+                                <Label x:Name="MyContentLabel" Grid.Row="1" TextColor="White" Style="{DynamicResource LabelStyle}">
+                                    <!--<Label.GestureRecognizers>
+                                        <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                                        <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                                    </Label.GestureRecognizers>-->
+                                </Label>
+                            </StackLayout>
+                        </Frame>
+                        <ffimageloading:CachedImage x:Name="FFimageSource" Grid.Row="2"                                                 
+                                                        HorizontalOptions="FillAndExpand" 
+                                                        VerticalOptions="FillAndExpand"
+                                                        DownsampleToViewSize="True" 
+                                                        IsVisible="False"
+                                                        Aspect="Fill"
+                                                        >
+                            <ffimageloading:CachedImage.GestureRecognizers>
+                                <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                                <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                                <TapGestureRecognizer Tapped="OnImageTappedQuestions"/>
+                            </ffimageloading:CachedImage.GestureRecognizers>
+                        </ffimageloading:CachedImage>
+                        <Grid x:Name="GridAnswer" CascadeInputTransparent="True" Grid.Row="3"
+                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                        </Grid>
+                    <Frame x:Name="FrameExplanation" Grid.Row="4" Style="{DynamicResource FrameStyle}" 
+                                IsVisible="False">
+                        <Frame.GestureRecognizers>
+                            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                                <Label x:Name="LabelExplanation" Style="{DynamicResource LabelStyle}">
+                                    <!--<Label.GestureRecognizers>
+                                        <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                                        <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                                    </Label.GestureRecognizers>-->
+                                </Label>
+                            <ffimageloading:CachedImage x:Name="PictureExplanation"
+                                                        HorizontalOptions="FillAndExpand" 
+                                                        VerticalOptions="FillAndExpand"
+                                                        DownsampleToViewSize="True"
+                                                        Aspect="Fill"
+                                                        >
+                                    <ffimageloading:CachedImage.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnImageTappedExplanation"/>
+                                    </ffimageloading:CachedImage.GestureRecognizers>
+                                </ffimageloading:CachedImage>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+                </ScrollView>
+            </StackLayout>
+
+            <!-- dolna belka-->
+            <StackLayout VerticalOptions="EndAndExpand">
+                
+                <Grid BackgroundColor="{StaticResource Primary}" Grid.ColumnSpan="5"
+                          VerticalOptions="FillAndExpand" >
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton x:Name="LeftBtn"  Source="ic_launcher_left.png" Grid.Column="0"
+                                 AutomationProperties.Name="Przesuń listę w lewo"
+                                 AutomationProperties.HelpText="Przesuń listę w lewo"
+                                 BackgroundColor="{StaticResource Primary}" TabIndex="1"
+                                 HeightRequest="50"
+                                 Clicked="ImageButton_Clicked"/>
+                    <SearchBar x:Name="mySearchBar" Placeholder="Przejdź do pytania..." Grid.Column="1"
+                               TextChanged="SearchBar_TextChanged">
+                    </SearchBar>
+                    <ImageButton x:Name="RightBtn"  Source="ic_launcher_right.png" Grid.Column="2"
+                                 AutomationProperties.Name="Przesuń listę w prawo"
+                                 AutomationProperties.HelpText="Przesuń listę w prawo"
+                                 BackgroundColor="{StaticResource Primary}" TabIndex="2"
+                                 HeightRequest="50"
+                                 Clicked="ImageButton_Clicked"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ISTQB_PL.Views.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             Title="{Binding Title}">
+    <ContentPage.Content >
+        <StackLayout x:Name="stackLayout" Padding="10,0,10,0" Style="{DynamicResource StackLayoutStyle}">
+            <ScrollView>
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 0-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 1-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 2-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 3-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 4-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 5-->
+                    <RowDefinition Height="Auto"/>
+                    <!-- row 6-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <!-- Image in Row 1 -->
+                <Image Source="ic_launcher_bug_drawable.png" Grid.Row="0" Grid.ColumnSpan="2"/>
+                <Label x:Name="LblLogin" Text="Login:" Grid.Row="1" Grid.ColumnSpan="2"
+                       Style="{DynamicResource LabelStyle}" />
+                <Entry x:Name="EntryLogin" Placeholder="Wpisz login" Grid.Row="2" Grid.ColumnSpan="2"
+                       Style="{DynamicResource EntryStyle}"/>
+                <Label x:Name="LblPasswd" Text="Hasło:" Grid.Row="3" Grid.ColumnSpan="2"
+                       Style="{DynamicResource LabelStyle}" />
+                <Entry x:Name="EntryPasswd" Placeholder="Wpisz hasło" IsPassword="True" 
+                       Grid.Row="4" Style="{DynamicResource EntryStyle}"
+                       Grid.ColumnSpan="2"/>
+                <Button x:Name="BtnLogin" VerticalOptions="Center" Text="Login" 
+                        Clicked="OnLoginClicked" Grid.ColumnSpan="2"
+                        Grid.Row="5" Grid.Column="0"/>
+                    <CheckBox Grid.Row="5" Color="{DynamicResource Primary}" Grid.Column="1"
+                          IsChecked="True" IsVisible="False"/>
+                    <!--Command="{Binding LoginCommand}"    Button_Clicked <ActivityIndicator x:Name="loadingIndicator" IsRunning="False" IsVisible="False" />-->
+                <ActivityIndicator x:Name="LoadingIndicator" IsVisible="False" BackgroundColor="{DynamicResource Primary}"
+                             Grid.Row="5" Color="White"/>
+            </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

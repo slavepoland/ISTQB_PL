@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="ISTQB_PL.Views.AboutPage"   
+             xmlns:admob="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             Title="Tester Manualny"
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False"
+             >
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_action_settings.png"
+                 Priority="0"
+                 Order="Primary"
+                 Clicked="ToolbarItem_Clicked"
+                 AutomationProperties.Name="Ustawienia"
+                 AutomationProperties.HelpText="Ustawienia">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <!--<ContentPage.Content>
+        <AbsoluteLayout>
+            <StackLayout x:Name="MyStackLayout" BackgroundColor="Red"
+                         Style="{DynamicResource StackLayoutStyle}"
+                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1, 1"
+                         AbsoluteLayout.LayoutFlags="All">
+                
+            </StackLayout>
+            --><!--<StackLayout x:Name="MainStackLayout"
+                         Style="{DynamicResource StackLayoutStyle}"
+                         AbsoluteLayout.LayoutBounds="0.0, 0.0, 1, 0.9"
+                         AbsoluteLayout.LayoutFlags="All">
+                --><!--<Grid x:Name="GridButton" VerticalOptions="FillAndExpand"
+                      HorizontalOptions="FillAndExpand" BackgroundColor="Transparent">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="BtnSylabus"  Margin="5" Text="Sylabus - info"
+                            Clicked="Button_Clicked_Sylabus" 
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White" Grid.Row ="0" Grid.Column ="0"/>
+                    <Button x:Name="BtnItems" Margin="5" Text="Manual tester - pytania"
+                            Clicked="Button_Clicked_Items" 
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White" Grid.Row ="0" Grid.Column ="1"/>
+                    <Button x:Name="BtnExam" Margin="5" Text="Zestawy pytań - egzamin"
+                            Clicked="Button_Clicked_Exam" 
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White" Grid.Row ="1" Grid.Column ="0"/>
+                    <Button x:Name="BtnGlossary" Margin="5" Text="Glosariusz"
+                            Clicked="BtnGlossary_Clicked" 
+                            BackgroundColor="{StaticResource Primary}"
+                            TextColor="White" Grid.Row ="1" Grid.Column ="1"/>
+                </Grid>--><!--
+
+            </StackLayout>-->
+
+            <!--<StackLayout x:Name="StackLayoutReklama" BackgroundColor="Yellow"
+                            Style="{DynamicResource ReklamaLayoutStyle}"
+                            AbsoluteLayout.LayoutBounds="0.0, 1.0, 1, 0.1"
+                            AbsoluteLayout.LayoutFlags="All">
+                --><!--<admob:MTAdView x:Name="AdMobBanner"
+                    BackgroundColor="Transparent"
+                    AdsId="ca-app-pub-6479256761216523/8121462788"
+                    AdSize="AnchoredAdaptive"
+                    AutoSize="True"
+                    IsVisible="True"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                />--><!--
+            </StackLayout>--><!--
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>-->
+</ContentPage>

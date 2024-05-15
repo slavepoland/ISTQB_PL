@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 x:Class="ISTQB_PL.Views.ExamPopupPage"
+                 >
+
+    <StackLayout x:Name="stackLayout" VerticalOptions="Center" HorizontalOptions="Center"
+                 WidthRequest="300" HeightRequest="220" >
+        <ActivityIndicator x:Name="activityIndycator" IsRunning="True" VerticalOptions="CenterAndExpand"/>
+        <Label x:Name="LabelText" Text="wybierz wersję Sylabusa:"  VerticalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+        <Grid x:Name="ChooseVersionNumberLayout">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="VersionThreeCheckBox" Grid.Row="0" Grid.Column="0" IsChecked="{Binding IsOption1Selected}"/>
+            <Label x:Name="VersionThreeLabel" Text="Wersja 3.1" Grid.Row="0" Grid.Column="1" ClassId="3" VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <CheckBox x:Name="VersionFourCheckBox" Grid.Row="1" Grid.Column="0" IsChecked="{Binding IsOption2Selected}"/>
+            <Label x:Name="VersionFourLabel" Text="Wersja 4.0" Grid.Row="1" Grid.Column="1" ClassId="4" VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+        <Button Text="Zatwierdź" Command="{Binding DismissCommand}" />
+    </StackLayout>
+</pages:PopupPage>

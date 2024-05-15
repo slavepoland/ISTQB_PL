@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.GlossaryPage"
+             Title="{Binding Title}" 
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False">
+
+    <!--<ContentPage.Content>
+        <StackLayout x:Name="MainStackLayout" Style="{DynamicResource StackLayoutStyle}" Padding="0">
+                <Grid BackgroundColor="AliceBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <SearchBar x:Name="MySearchBar" Grid.Column="0" BackgroundColor="AliceBlue"
+                                Placeholder="Wyszukaj..."
+                                Text="{Binding SearchText, Mode=TwoWay}"
+                                SearchCommand="{Binding SearchCommand}" 
+                                MinimumWidthRequest="60"/>
+                    <Switch Grid.Column="1" VerticalOptions="FillAndExpand"
+                        IsToggled="{Binding StartsWithSearchMode, Mode=TwoWay}"
+                        HorizontalOptions="Start"
+                        Margin="10"
+                        OnColor="Green"
+                        ThumbColor="White"
+                        MinimumHeightRequest="48" MinimumWidthRequest="50"
+                        />
+                    <Label x:Name="LabelText" Grid.Column="2"
+                           LineBreakMode="WordWrap"
+                           Text="{Binding LabelText}"
+                           FontSize="{Binding MyFontSize}"
+                           VerticalOptions="Center"
+                           Margin="5"
+                           />
+                </Grid>
+                <ScrollView VerticalScrollBarVisibility="Never">
+                    <StackLayout 
+                        AutomationProperties.Name="Glosariusz-definicje"
+                        AutomationProperties.HelpText="Glosariusz-definicje"
+                        >
+                        <CollectionView x:Name="ItemsListView" 
+                                        ItemsSource="{Binding SearchItems}"
+                                        SelectionMode="None" >
+                            <CollectionView.ItemsLayout >
+                                <LinearItemsLayout Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate >
+                                <DataTemplate >
+                                    <StackLayout x:Name="StackCollectionView">
+                                        <Frame x:Name="FrameCollectionView"
+                                               Style="{DynamicResource FrameStyle}" Margin="2">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="130"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label x:Name="LabelName" Text="{Binding Name}" Grid.Column="0" 
+                                                       FontSize="{Binding MyFontSize}" 
+                                                       Style="{DynamicResource LabelStyle}"
+                                                       LineBreakMode="WordWrap"
+                                                       HorizontalTextAlignment="Start">
+                                                </Label>
+                                                <Label x:Name="LabelDescription" Text="{Binding Description}" Grid.Column="1" 
+                                                       FontSize="{Binding MyFontSize}" 
+                                                       Style="{DynamicResource LabelStyle}"
+                                                       LineBreakMode="CharacterWrap"
+                                                       HorizontalTextAlignment="Start">
+                                                </Label>
+                                            </Grid>
+                                        </Frame>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+            --><!--reklama Google--><!--
+            <StackLayout x:Name="StackLayoutReklama" HorizontalOptions="FillAndExpand"
+                         VerticalOptions="EndAndExpand" HeightRequest="60" 
+                         BackgroundColor="{Binding MyBackgroundColor}">
+                <Grid x:Name="GridReklama" VerticalOptions="Center" BackgroundColor="Transparent"
+                       >                    
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>-->
+</ContentPage>

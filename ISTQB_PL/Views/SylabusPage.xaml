@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.SylabusPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             Title="Sylabus-wersja PL 4.0.0.1"
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout x:Name="stackLayout" Style="{DynamicResource StackLayoutStyle}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                        <Grid IsVisible="True" Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Frame x:Name="frame1" Style="{DynamicResource FrameStyle}" Grid.Row="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped" CommandParameter="1" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Rozdział 1" VerticalTextAlignment="Start" 
+                                           Grid.Row="0" Style="{DynamicResource LabelStyle}" FontAttributes="Bold"/>
+                                    <Label Text="Podstawy testowania" VerticalTextAlignment="Start" 
+                                           Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
+                                </Grid>
+                            </Frame>
+                            <Frame x:Name="frame2" Style="{StaticResource FrameStyle}" Grid.Row="1">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped" CommandParameter="2" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Rozdział 2" VerticalTextAlignment="Start" 
+                                           Grid.Row="0" Style="{DynamicResource LabelStyle}" FontAttributes="Bold"/>
+                                    <Label Text="Testowanie w cyklu wytwarzania oprogramowania" VerticalTextAlignment="Start" 
+                                        Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
+                                </Grid>
+                            </Frame>
+                            <Frame x:Name="frame3" Style="{StaticResource FrameStyle}" Grid.Row="2">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped" CommandParameter="3" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Rozdział 3" VerticalTextAlignment="Start" 
+                                           Grid.Row="0" Style="{DynamicResource LabelStyle}" FontAttributes="Bold"/>
+                                    <Label Text="Testowanie statyczne" VerticalTextAlignment="Start" 
+                                           Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
+                                </Grid>
+                            </Frame>
+                            <Frame x:Name="frame4" Style="{StaticResource FrameStyle}" Grid.Row="3">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped" CommandParameter="4" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Rozdział 4" VerticalTextAlignment="Start" 
+                                           Grid.Row="0" Style="{DynamicResource LabelStyle}" FontAttributes="Bold"/>
+                                    <Label Text="Analiza i projektowanie testów" VerticalTextAlignment="Start" 
+                                           Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
+                                </Grid>
+                            </Frame>
+                            <Frame x:Name="frame5" Style="{StaticResource FrameStyle}" Grid.Row="4">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped" CommandParameter="5" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Rozdział 5" VerticalTextAlignment="Start" 
+                                           Grid.Row="0" Style="{DynamicResource LabelStyle}" FontAttributes="Bold"/>
+                                    <Label Text="Zarządzanie czynnościami testowymi" VerticalTextAlignment="Start" 
+                                           Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
+                                </Grid>
+                            </Frame>
+                            <Frame x:Name="frame6" Style="{StaticResource FrameStyle}" Grid.Row="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnFrameTapped" CommandParameter="6" />
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="Rozdział 6" VerticalTextAlignment="Start" 
+                                           Grid.Row="0" Style="{DynamicResource LabelStyle}" FontAttributes="Bold"/>
+                                    <Label Text="Narzędzia testowe" VerticalTextAlignment="Start" 
+                                           Grid.Row="1" Style="{DynamicResource LabelStyle}"/>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                
+                    <Label Text="Na podstawie:" Grid.Row="1" Style="{DynamicResource LabelStyle}">
+                        
+                    </Label>
+                    <ffimageloading:CachedImage x:Name="FFimageSource" Grid.Row="2"                                                 
+                                        HorizontalOptions="FillAndExpand" 
+                                        VerticalOptions="FillAndExpand"
+                                        WidthRequest="200" HeightRequest="160"
+                                        DownsampleToViewSize="True" 
+                                        InputTransparent="True"
+                                        IsVisible="True"
+                                        Source="http://arka1mtb.cba.pl/istqb_image/logoistqb.jpg"
+                                        >
+                        </ffimageloading:CachedImage>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

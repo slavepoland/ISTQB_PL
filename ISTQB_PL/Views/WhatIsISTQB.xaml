@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.WhatIsISTQB"
+             Title="Co to jest ISTQB?"
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Style="{DynamicResource StackLayoutStyle}">
+            <ScrollView>
+                <Frame Style="{DynamicResource FrameStyle}"
+                    HorizontalOptions="FillAndExpand">
+                    <Label x:Name="LabelContent" Style="{DynamicResource LabelStyle}" />
+                </Frame>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

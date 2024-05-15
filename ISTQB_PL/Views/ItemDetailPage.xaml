@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.ItemDetailPage"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:viewmodels="clr-namespace:ISTQB_PL.ViewModels" 
+             x:DataType="viewmodels:ItemDetailViewModel"
+             Title="{Binding Title}"
+             >
+    <!--<ContentPage.Resources>
+        <ResourceDictionary >
+            <local:TextConcatenationConverter x:Key="TextConcatenationConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>-->
+
+    <StackLayout Padding="5" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <StackLayout.GestureRecognizers>
+            <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+            <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+        </StackLayout.GestureRecognizers>
+
+        <ScrollView VerticalScrollBarVisibility="Never">
+            <Grid x:Name="gridLayautDetail" BackgroundColor="White" 
+                  RowSpacing="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout BackgroundColor="{StaticResource Primary}" Padding="5">
+                    <StackLayout.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Left" Swiped="OnSwiped"/>
+                        <SwipeGestureRecognizer Direction="Right" Swiped="OnSwiped"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label x:Name="LabelId" 
+                       TextColor="White" 
+                       Grid.Row="0" Grid.Column="0"/>
+                    <Label x:Name="LabelContent"  Text="{Binding MyContent}" HorizontalTextAlignment="Start" 
+                       TextColor="White"  
+                       Grid.Row="1" Grid.Column="0" Padding="5"/>
+                
+                    <ffimageloading:CachedImage x:Name="FFimageSource" Grid.Row="2"
+                                                HorizontalOptions="FillAndExpand" 
+                                                VerticalOptions="FillAndExpand"
+                                                DownsampleToViewSize="True" 
+                                                Source = "{Binding Str_Picture}" 
+                                                IsVisible="{Binding Visible_Picture}" >
+                    </ffimageloading:CachedImage>
+                </StackLayout>
+                <Grid x:Name="GridAnswer"  Grid.Row ="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <RadioButton x:Name="RadioAnswer_a" Content="{Binding Answer_a}" Grid.Row="0" Value="Answer_a" 
+                                 Style="{DynamicResource DarkRadioStyle}"
+                                 CheckedChanged="RadioButton_CheckedChanged" />
+                    <RadioButton x:Name="RadioAnswer_b" Content="{Binding Answer_b}" Grid.Row="1" Value="Answer_b"
+                                 Style="{DynamicResource DarkRadioStyle}"
+                                 CheckedChanged="RadioButton_CheckedChanged"/>
+                    <RadioButton x:Name="RadioAnswer_c" Content="{Binding Answer_c}" Grid.Row="2" Value="Answer_c" 
+                                 Style="{DynamicResource DarkRadioStyle}"            
+                                 CheckedChanged="RadioButton_CheckedChanged"/>
+                    <RadioButton x:Name="RadioAnswer_d" Content="{Binding Answer_d}" Grid.Row="3" Value="Answer_d" 
+                                 Style="{DynamicResource DarkRadioStyle}"
+                                 CheckedChanged="RadioButton_CheckedChanged" />
+                    <Button x:Name="BtnAnswer" Text="Sprawdź" BackgroundColor="{DynamicResource Primary}" 
+                                 IsVisible="False" Grid.Row="4" Clicked="BtnAnswer_Clicked"/>
+                    <Frame x:Name="FrameExplanation" Grid.Row="5" Style="{StaticResource FrameStyle}"
+                           IsVisible="False" BackgroundColor="White">
+                        <StackLayout>
+                            <Label x:Name="LabelExplanation" Text="{Binding Str_Explanation}" HorizontalTextAlignment="Start" 
+                                    TextColor="Red" IsVisible="False"
+                                    Grid.Row="5" Padding="5"/>
+                            <ffimageloading:CachedImage HorizontalOptions="FillAndExpand" 
+                                                        VerticalOptions="FillAndExpand"
+                                                        DownsampleToViewSize="True" 
+                                                        Source = "{Binding Exp_Picture}" >
+                            </ffimageloading:CachedImage>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+            </Grid>
+        </ScrollView>
+        <!-- dolna belka-->
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Grid BackgroundColor="{StaticResource Primary}"
+              VerticalOptions="FillAndExpand" >
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ImageButton x:Name="LeftBtn"  Source="ic_launcher_left.png" Grid.Column="0"
+                            BackgroundColor="{StaticResource Primary}" TabIndex="1"
+                            HeightRequest="50"
+                            Clicked="ImageButton_Clicked"/>
+                <ImageButton x:Name="RightBtn"  Source="ic_launcher_right.png" Grid.Column="2" 
+                            BackgroundColor="{StaticResource Primary}" TabIndex="2"
+                            HeightRequest="50"
+                            Clicked="ImageButton_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

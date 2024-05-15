@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Styl dla trybu ciemnego (values-night/styles.xml) -->
+	<style name="AppTheme" parent="Theme.AppCompat">
+		<!-- Domyślny kolor czcionki dla trybu ciemnego -->
+		<item name="android:textColor">@android:color/white</item>
+		<!-- Domyślny kolor tła dla trybu ciemnego -->
+		<item name="android:windowBackground">@android:color/black</item>
+		<!-- Kolor akcentu dla trybu ciemnego -->
+		<item name="colorAccent">@color/colorAccent</item>
+		<!-- Inne atrybuty stylu dla trybu ciemnego -->
+		
+	</style>
+</resources>
+

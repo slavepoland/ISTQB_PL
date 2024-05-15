@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ISTQB_PL.Views.ExamSavedPage"
+             Shell.NavBarIsVisible="True"
+             Title="{Binding Title}"
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False"
+             >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_action_delete.png"
+                 Priority="0"
+                 Order="Primary"
+                 Clicked="ToolbarItem_Clicked"
+                 AutomationProperties.Name="Skasuj zapisane egzaminy"
+                 AutomationProperties.HelpText="Skasuj zapisane egzaminy">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+</ContentPage>

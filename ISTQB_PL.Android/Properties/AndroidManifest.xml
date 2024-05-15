@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="17" android:versionName="1.0.6" package="tester.manualny.qa_pl" android:installLocation="auto">
+	<uses-sdk android:minSdkVersion="25" android:targetSdkVersion="33" />
+	<uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+	<application android:label="Tester Manualny PL" android:theme="@style/MainTheme" android:icon="@mipmap/ic_launcher_bug_adaptive_fore">
+		<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-6479256761216523~3144468275" />
+		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+		<!-- Dodaj wpis Activity dla usługi AdMob -->
+		<activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" android:theme="@android:style/Theme.Translucent" />
+	</application>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+</manifest>

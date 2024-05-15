@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:ISTQB_PL.ViewModels" 
+             x:DataType="viewmodels:SettingsViewModel"
+             x:Class="ISTQB_PL.Views.SettingsPage"
+             Shell.FlyoutBehavior="Disabled"
+             FlyoutItem.IsVisible="False"
+             Title="Ustawienia">
+
+    <ContentPage.BindingContext>
+        <viewmodels:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Style="{DynamicResource StackLayoutStyle}">
+                <!--StackLayout Main-->
+                <StackLayout x:Name="stackLayout" Style="{DynamicResource StackLayoutStyle}">
+                <!-- Wielość czcionki-->
+                <Frame BorderColor="{DynamicResource Primary}" 
+                       HorizontalOptions="FillAndExpand" Padding="5" Style="{DynamicResource FrameStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name="label1" Text="Wybierz wielkość czcionki:" Style="{DynamicResource LabelStyle}"
+                               Grid.Row="0"/>
+                        <Label x:Name="MyLblExampleText" Style="{DynamicResource LabelStyle}"
+                                Text="{Binding SelectedOptionText}" TabIndex="1" 
+                               Grid.Row="1" HorizontalTextAlignment="Center" />
+                        <Slider x:Name="MyOptionSlider" Grid.Row="2" BackgroundColor="{DynamicResource Primary}" 
+                                AutomationProperties.Name="Wielkość czcionki"
+                                AutomationProperties.HelpText="Wielkość czcionki"
+                                Minimum="0" Maximum="16" HeightRequest="24" MinimumHeightRequest="12"
+                                 />
+                    </Grid>
+                </Frame> 
+            
+                <!-- Egzamin-->
+                <Frame BorderColor="{DynamicResource Primary}"
+                       HorizontalOptions="FillAndExpand" Style="{DynamicResource FrameStyle}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="Egzamin i Pytania:" Style="{DynamicResource LabelStyle}"
+                                   Grid.Row="0" Grid.ColumnSpan="3"/>
+                            <Label x:Name="LblExam" Text="Pokazuj odpowiedzi:" 
+                                   Style="{DynamicResource LabelStyle}"
+                                   Grid.Row="1" Grid.Column="0"/>
+                            <Label x:Name="LblStatus" Text="Natychmiast" Grid.Row="1" Grid.Column="1" 
+                                   Style="{DynamicResource LabelStyle}"/>
+                            <Switch x:Name="OdpSwitch" IsEnabled="True" Toggled="SwitchToggled"
+                                    Grid.Row="1" Grid.Column="2" TabIndex="1" MinimumHeightRequest="50"/>
+                            <Label Text="Pokazuj wyjaśnienie:" Grid.Row="2" Grid.Column="0" 
+                                   Style="{DynamicResource LabelStyle}"/>
+                            <Label x:Name="ExpStatus" Text="Tylko błędne" Grid.Row="2" Grid.Column="1" 
+                                   Style="{DynamicResource LabelStyle}"/>
+                            <Switch x:Name="ExpSwitch" IsEnabled="True" Toggled="SwitchToggled"
+                                    Grid.Row="2" Grid.Column="2" TabIndex="2" MinimumHeightRequest="50"/>
+                    </Grid>
+                </Frame>
+            
+                <!-- Co to jest ISTQB-->
+                <Frame BorderColor="{DynamicResource Primary}" 
+                        HorizontalOptions="FillAndExpand" Style="{DynamicResource FrameStyle}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFrameTapped" />
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="ic_launcher_info.png" Grid.Row="0" Grid.Column="0"/>
+                            <Label Text="Co to jest ISTQB?" Style="{DynamicResource LabelStyle}"
+                            Grid.Row="0" Grid.Column="1" FontAttributes="Bold" VerticalOptions="Center"/>
+                        </Grid>
+                </Frame>
+                <!-- Referencje-->
+                <Frame BorderColor="{DynamicResource Primary}" 
+                       HorizontalOptions="FillAndExpand" Style="{DynamicResource FrameStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label  Text="W aplikacji wykorzystano następujące materiały, których źródłem jest ISTQB© i do których prawa własności ma  ISTQB©:" Style="{DynamicResource LabelStyle}"
+                                Grid.Row="0" VerticalOptions="Center"/>
+                        <Label  Text="- Certyfikowany tester ISTQB©. Poziom podstawowy. Na podstawie Sylabusa z 2018 roku." Style="{DynamicResource LabelStyle}"
+                                Grid.Row="1" VerticalOptions="Center"/>
+                        <!--<Label  Text="- Certyfikat testera. Przygotowanie do egzaminu w pytaniach i odpowiedziach." Style="{DynamicResource LabelStyle}"
+                                Grid.Row="2" VerticalOptions="Center"/>-->
+                        <Label  Text="- Glosariusz. Na podstawie https://glossary.istqb.org/pl_PL/search ISTQB Glossary, V4.2.1" Style="{DynamicResource LabelStyle}"
+                            Grid.Row="3" VerticalOptions="Center" TextColor="Blue">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenBrowserCommand}" CommandParameter="https://glossary.istqb.org/pl_PL/search" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <Label  Text="- https://sjsi.org/ist-qb/do-pobrania/" Style="{DynamicResource LabelStyle}"
+                            Grid.Row="4" VerticalOptions="Center" TextColor="Blue">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenBrowserCommand}" CommandParameter="https://sjsi.org/ist-qb/do-pobrania/" />
+                            </Label.GestureRecognizers>
+                        </Label>
+                        </Grid>
+                </Frame>
+            </StackLayout>
+                <!--dolna belka z numerem wersji-->
+                <StackLayout Style="{DynamicResource StackLayoutStyle}" VerticalOptions="EndAndExpand">
+                    <Grid BackgroundColor="{StaticResource Primary}" Grid.ColumnSpan="5" VerticalOptions="FillAndExpand" >
+                        <Grid.RowDefinitions >
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Wersja 1.0.6 z 10.03" Grid.Column="2" Style="{DynamicResource LabelStyle}" TextColor="White"/>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
